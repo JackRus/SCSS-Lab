@@ -27,7 +27,9 @@ body {
 }
 
 .container.column {
+
     flex-flow: column;
+
     .column-item {
         height: 3em;
         display: flex;
@@ -247,6 +249,7 @@ input:checked + .jrs-slider::before {
     li {
         display: inline-flex;
         align-items: center;
+        height: 1.2em;
   
         &.done::before {
             font-family: 'Material Icons';
@@ -267,7 +270,8 @@ input:checked + .jrs-slider::before {
         }
 
         &::before {
-            content: '+';
+            font-family: 'Material Icons';
+            content: 'play_arrow';
             font-size: 1.2em;
             width: 1.5em;
         }

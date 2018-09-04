@@ -1,226 +1,386 @@
 html {
   font-size: 15px;
-  font-family: Roboto; }
+  font-family: Roboto;
+}
 
 body {
   background-color: #c4c4c4;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 .container {
   width: 500px;
-  height: 200px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 200px;
   background-color: #f4f4f4;
   margin: 20px;
-  padding: 20px; }
+  padding: 20px;
+}
 
 .container.column {
-  flex-flow: column; }
-  .container.column .column-item {
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex: 0 3rem;
-    width: 100%;
-    background-color: #444444;
-    color: white;
-    padding: 5px 1em;
-    cursor: pointer; }
-    .container.column .column-item:hover {
-      background-color: #585858; }
-      .container.column .column-item:hover .title::before {
-        color: lightgreen; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.container.column .column-item {
+  height: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 3rem;
+          flex: 0 3rem;
+  width: 100%;
+  background-color: #444444;
+  color: white;
+  padding: 5px 1em;
+  cursor: pointer;
+}
+
+.container.column .column-item:hover {
+  background-color: #585858;
+}
+
+.container.column .column-item:hover .title::before {
+  color: lightgreen;
+}
 
 .center {
-  text-align: center; }
+  text-align: center;
+}
 
 .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   font-size: 1.2rem;
-  line-height: 1rem; }
-  .title::before {
-    font-family: 'Material Icons';
-    content: attr(data-icon);
-    font-weight: bold;
-    font-size: 1.5em;
-    margin-right: .5em; }
+  line-height: 1rem;
+}
+
+.title::before {
+  font-family: 'Material Icons';
+  content: attr(data-icon);
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: .5em;
+}
 
 .slider-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
-  font-size: calc(2rem / 2); }
-  .slider-container:hover .jrs-radio::before {
-    background-color: lightgreen; }
+  font-size: calc(2rem / 2);
+}
+
+.slider-container:hover .jrs-radio::before {
+  background-color: lightgreen;
+}
 
 .jrs-checkbox {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-left: 1em;
   width: 2rem;
   height: 2rem;
-  cursor: pointer; }
-  .jrs-checkbox::before {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    content: '';
-    border: solid calc(2rem * 0.1) #444444;
-    font-weight: 600;
-    line-height: 100%;
-    font-size: 1.5em;
-    padding: 5px; }
+  cursor: pointer;
+}
+
+.jrs-checkbox::before {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  border: solid calc(2rem * 0.1) #444444;
+  font-weight: 600;
+  line-height: 100%;
+  font-size: 1.5em;
+  padding: 5px;
+}
 
 input:checked + .jrs-checkbox::before {
   font-family: 'Material Icons';
   content: 'done';
   background-color: lightgreen;
-  color: #444444; }
+  color: #444444;
+}
 
 .jrs-radio {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 1em;
   width: 2rem;
   height: 2rem;
-  cursor: pointer; }
-  .jrs-radio::before {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 2rem;
-    border: solid calc(2rem * 0.1) #444444;
-    content: '';
-    font-size: 2rem; }
+  cursor: pointer;
+}
+
+.jrs-radio::before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  border: solid calc(2rem * 0.1) #444444;
+  content: '';
+  font-size: 2rem;
+}
 
 input:checked + .jrs-radio::before {
   font-family: 'Material Icons';
   content: 'brightness_1';
   font-size: 0.8em;
   background-color: lightgreen;
-  color: #444444; }
+  color: #444444;
+}
 
 .jrs-slider {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-left: 1em;
   width: calc(2rem * 2);
   height: 2rem;
   cursor: pointer;
   background-color: #444444;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 2rem;
-  padding: calc(2rem * 0.1); }
-  .jrs-slider::before {
-    height: calc(2rem * 0.8);
-    width: calc(2rem * 0.8);
-    background-color: lightgray;
-    border-radius: 2rem;
-    content: '';
-    transition: 0.5s; }
+  padding: calc(2rem * 0.1);
+}
+
+.jrs-slider::before {
+  height: calc(2rem * 0.8);
+  width: calc(2rem * 0.8);
+  background-color: lightgray;
+  border-radius: 2rem;
+  content: '';
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
 
 input:checked + .jrs-slider::before {
-  transform: translateX(2rem);
-  background-color: lightgreen; }
+  -webkit-transform: translateX(2rem);
+          transform: translateX(2rem);
+  background-color: lightgreen;
+}
 
 .slider-container input {
-  display: none; }
+  display: none;
+}
 
 .bluebag {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   opacity: 0;
   background-color: #444444;
   color: white;
   height: 100px;
   width: 400px;
-  animation: opacityOff 7s infinite;
-  animation-delay: 1s;
+  -webkit-animation: opacityOff 7s infinite;
+          animation: opacityOff 7s infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   border-radius: 5px;
-  padding: 1em; }
-  .bluebag i {
-    font-size: 3rem;
-    flex: 0 1 auto; }
-  .bluebag .success {
-    color: #38d350; }
-  .bluebag .error {
-    color: #d33838; }
-  .bluebag .info {
-    color: yellow; }
-  .bluebag .header {
-    font-weight: bold;
-    font-size: 1rem; }
-  .bluebag .message {
-    flex: 0 1 auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    margin-left: 1em;
-    text-align: left;
-    height: 100%;
-    overflow: auto; }
+  padding: 1em;
+}
+
+.bluebag i {
+  font-size: 3rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.bluebag .success {
+  color: #38d350;
+}
+
+.bluebag .error {
+  color: #d33838;
+}
+
+.bluebag .info {
+  color: yellow;
+}
+
+.bluebag .header {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.bluebag .message {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 1em;
+  text-align: left;
+  height: 100%;
+  overflow: auto;
+}
+
+@-webkit-keyframes opacityOff {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 @keyframes opacityOff {
   0% {
-    opacity: 0; }
+    opacity: 0;
+  }
   20% {
-    opacity: 1; }
+    opacity: 1;
+  }
   90% {
-    opacity: 1; }
+    opacity: 1;
+  }
   100% {
-    opacity: 0; } }
+    opacity: 0;
+  }
+}
 
 .list {
+  display: -ms-grid;
   display: grid;
   grid: auto-flow / 1fr;
   grid-gap: 0.2em;
   width: 100%;
   list-style: none;
   margin: 0;
-  font-size: 1rem; }
-  .list li {
-    display: inline-flex;
-    align-items: center; }
-    .list li.done::before {
-      font-family: 'Material Icons';
-      content: 'done';
-      font-size: 1.2em;
-      color: darkcyan;
-      font-weight: bold;
-      width: 1.5em; }
-    .list li.error::before {
-      font-family: 'Material Icons';
-      content: 'clear';
-      font-size: 1.2em;
-      color: red;
-      font-weight: bold;
-      width: 1.5em; }
-    .list li::before {
-      content: '+';
-      font-size: 1.2em;
-      width: 1.5em; }
-  .list.f08 {
-    font-size: 0.8rem; }
-  .list.f20 {
-    font-size: 2rem; }
+  font-size: 1rem;
+}
+
+.list li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 1.2em;
+}
+
+.list li.done::before {
+  font-family: 'Material Icons';
+  content: 'done';
+  font-size: 1.2em;
+  color: darkcyan;
+  font-weight: bold;
+  width: 1.5em;
+}
+
+.list li.error::before {
+  font-family: 'Material Icons';
+  content: 'clear';
+  font-size: 1.2em;
+  color: red;
+  font-weight: bold;
+  width: 1.5em;
+}
+
+.list li::before {
+  font-family: 'Material Icons';
+  content: 'play_arrow';
+  font-size: 1.2em;
+  width: 1.5em;
+}
+
+.list.f08 {
+  font-size: 0.8rem;
+}
+
+.list.f20 {
+  font-size: 2rem;
+}
+/*# sourceMappingURL=styles.css.map */
