@@ -14,10 +14,10 @@ html {
 body {
   display: -ms-grid;
   display: grid;
-  grid: -webkit-min-content / 1fr;
-  grid: min-content / 1fr;
+  grid: min-content/minmax(400px, 1fr);
   background-color: #dddddd;
-  margin: 0;
+  margin: 1rem;
+  grid-gap: 1rem;
   font-size: 1rem;
 }
 
@@ -25,7 +25,6 @@ body > div {
   position: relative;
   background: white;
   color: #4a4a4a;
-  margin: 1.5em;
   padding: 3em 1em;
 }
 
@@ -65,27 +64,23 @@ label.jr-checkbox {
           align-items: center;
 }
 
-label.jr-checkbox.left span {
+label.jr-checkbox.left > span::before {
   margin: 1em 0 1em 1em;
 }
 
-label.jr-checkbox.right span {
+label.jr-checkbox.right > span::before {
   margin: 1em 1em 1em 0;
 }
 
 label.jr-checkbox.top, label.jr-checkbox.bottom {
-  text-align: center;
-  display: block;
-  width: 100%;
+  display: inline-block;
 }
 
 label.jr-checkbox.top span, label.jr-checkbox.bottom span {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  display: block;
+}
+
+label.jr-checkbox.top span::before, label.jr-checkbox.bottom span::before {
   margin: 1em auto;
 }
 
@@ -116,12 +111,9 @@ label.jr-checkbox span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 1.6em;
-  height: 1.6em;
 }
 
 label.jr-checkbox span::before {
-  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -131,14 +123,12 @@ label.jr-checkbox span::before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 1.6em;
+  height: 1.6em;
   content: '';
-  border: solid calc(1.5rem * 0.075) #4a4a4a;
-  font-weight: 600;
-  font-size: 1.2em;
+  border: solid 0.1125rem;
+  font-weight: bold;
+  font-size: 1em;
   padding: .1em;
 }
 
@@ -188,7 +178,7 @@ label.jr-radio input {
 }
 
 label.jr-radio input:checked + span {
-  border: solid 0.45rem #4a4a4a;
+  border: solid 0.45rem;
   background-color: lightgreen;
 }
 
