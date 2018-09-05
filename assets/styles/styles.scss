@@ -47,6 +47,10 @@ body > div {
     }
 }
 
+*:hover.highlight {
+    background-color: antiquewhite;
+}
+
 // CHECKBOX
 label.jr-checkbox {
     font-size: 1rem;
@@ -108,7 +112,7 @@ label.jr-checkbox {
             left: 0;
             right: 0;
             content: '';
-            border: solid calc(1.5em * 0.075) $font-color;
+            border: solid calc(1.5rem * 0.075) $font-color;
             font-weight: 600;            
             font-size: 1.2em;
             padding: .1em;
@@ -116,6 +120,61 @@ label.jr-checkbox {
     }
 }
 
+$slider-size: 2rem;
+
+// RADIO 
+label.jr-radio {
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+
+    &.left {
+        span { margin: 1em 0 1em 1em; }
+    }
+
+    &.right {
+        span { margin: 1em 1em 1em 0; }
+    }
+
+    &.top, &.bottom {
+
+        text-align: center;
+        display: block;
+
+        span { 
+            display: flex;
+            justify-items: center;
+            justify-content: space-around;           
+            margin: 1em auto;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;        
+        span {           
+            background-color: lightgreen;           
+        }
+    }   
+
+    input {
+        display: none;
+        &:checked  + span {
+            border: solid 0.45rem $font-color;
+            background-color: lightgreen;              
+        }    
+    }
+
+    span {
+        position: relative;
+        display: inline-flex;
+        align-items: center;       
+        justify-content: center;        
+        width: 1.6em;
+        height: 1.6em;  
+        border: solid .1125rem;
+        border-radius: 1.6em;       
+    }
+}
 
 
 
@@ -164,6 +223,7 @@ $slider-size: 2rem;
 
 
 
+
 // RADIO 
 .jrs-radio {
     position: relative;
@@ -194,6 +254,9 @@ input:checked + .jrs-radio::before {
     background-color: lightgreen;
     color: #444444;
 }
+
+
+
 
 .jrs-slider {
     position: relative;

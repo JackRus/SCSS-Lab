@@ -51,6 +51,10 @@ body > div.grid {
   place-items: center;
 }
 
+*:hover.highlight {
+  background-color: antiquewhite;
+}
+
 label.jr-checkbox {
   font-size: 1rem;
   display: -webkit-inline-box;
@@ -132,10 +136,77 @@ label.jr-checkbox span::before {
   left: 0;
   right: 0;
   content: '';
-  border: solid calc(1.5em * 0.075) #4a4a4a;
+  border: solid calc(1.5rem * 0.075) #4a4a4a;
   font-weight: 600;
   font-size: 1.2em;
   padding: .1em;
+}
+
+label.jr-radio {
+  font-size: 1rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+label.jr-radio.left span {
+  margin: 1em 0 1em 1em;
+}
+
+label.jr-radio.right span {
+  margin: 1em 1em 1em 0;
+}
+
+label.jr-radio.top, label.jr-radio.bottom {
+  text-align: center;
+  display: block;
+}
+
+label.jr-radio.top span, label.jr-radio.bottom span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 1em auto;
+}
+
+label.jr-radio:hover {
+  cursor: pointer;
+}
+
+label.jr-radio:hover span {
+  background-color: lightgreen;
+}
+
+label.jr-radio input {
+  display: none;
+}
+
+label.jr-radio input:checked + span {
+  border: solid 0.45rem #4a4a4a;
+  background-color: lightgreen;
+}
+
+label.jr-radio span {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  border: solid .1125rem;
+  border-radius: 1.6em;
 }
 
 .title {
