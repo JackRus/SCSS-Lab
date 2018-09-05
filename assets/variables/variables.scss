@@ -1,0 +1,92 @@
+
+// MAIN COLORS
+$primary: #3598dc;
+$accent: #2f8656;
+$warn: #e53935;
+$orange: #f2784b; // for orange buttons
+$grey: #4a4a4a;
+$light-grey: #cacaca;
+
+// Additional colors
+$app-purple: #996faf;
+$app-blue: #64bfe8;
+$app-yellow: #ecce62;
+$app-settings-bg: rgba(163, 217, 230, 0.30980392156862746);
+$app-settings-selection-bg: rgba(230, 163, 163, 0.309804);
+$app-highlight-bg: rgba(255, 250, 224, 0.65);
+
+// Shared
+$placeholder-color: $light-grey;
+$font-color: $grey;
+$background-color: #f3f4f7;
+$overlay-bg-color: rgba(0,0,0,0.9);
+$footer-bg-color: #58595b;
+$border-radius: 2px;
+
+// FONT WEIGHT
+$thin: 100;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+$thick: 900;
+$font-size: 1em;
+
+////////
+// CARDS
+////////
+
+// General
+$card-margin: 10px;
+$card-bg: #ffffff;
+
+// Header
+$card-header-bg: #418cdd;
+$card-header-padding: 5px;
+
+// Title
+$card-title-font: 1.5em;
+$card-subtitle-font: 1.1em;
+
+// Content
+$card-padding: 15px;
+$card-padding-mobile: 10px;
+
+// FOR HINT HIGHLIGHT
+$mouse-on-confirmation: $warn;
+$mouse-off-confirmation: $grey;
+
+// SNACKBAR
+$snackbar-button-background: rgba(255, 255, 255, 0.05);
+$snackbar-button-color: #ffffff;
+$snackbar-error: $warn;
+$snackbar-info: yellow;
+$snackbar-success: $accent;
+$app-min-width: 350px;
+
+// ENVIRONMENT LOGO
+$env-bg-color: purple;
+$env-color: #ffffff;
+$env-zindex: 999;
+
+// TOOLBAR
+$toolbar-bg-color: $accent;
+$toolbar-color: white;
+$toolbar-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 0 0 0, 0 0 0 0;
+
+// SIDE-NAV
+$item-bg-hover: rgba(123, 125, 125, 0.49);
+$item-icon-hightlight: lightgreen;
+
+// Spinner
+$spinner-zindex: 10001;
+$spinner-overlay-zindex: 10000;
+$spinner-overlay-color: rgba(255, 255, 255, 0.3); /*dim the background*/
+
+// TABLES
+$header-color: $grey;
+$header-weight: $bold;
+$row-hover-bg: #d3f3ff;
+
+// INPUT FIElDS
+$input-disabled-color: $grey;

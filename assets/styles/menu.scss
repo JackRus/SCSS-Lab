@@ -1,3 +1,5 @@
+@import "../variables/variables";
+
 html {
     font-size: 15px;
     font-family: Roboto;
@@ -6,113 +8,105 @@ html {
 
 body {
     margin: 0;
-    width: 100vw;
-    //height: 100vh;
-    min-height: 100vh;
+    width: 100vw;    
+    height: 100vh;
     display: grid;
-    grid-template-columns: auto min-content auto;
-    grid-template-rows: auto min-content auto min-content auto;
-    grid-template-areas: 
-    ". . ." 
-    ". menu ." 
-    ". . ."
-    ". menu_sub ."
-    ". . .";
+    grid-template-columns: auto 400px auto;
+    grid-template-rows: auto 700px auto;
+    grid-template-areas: ". . ." ". menu ." ". . .";
     font-size: 1rem;
 }
 
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
+*, *::after, *::before { box-sizing: border-box; }
 
-.menu {
-    grid-area: menu;
-    width: 400px;
-    display: grid;
+.menu {     
+    background-color: $grey;
+    color: white;
+    
+    display: grid;    
     grid-auto-flow: row dense;
     grid-auto-rows: min-content;
+    grid-area: menu;
     grid-template-columns: 1fr;
-    font-size: 1rem;
-    align-content: center;
-
-    &.dark {
-        background-color: #3c3b3b;
-        color: white;
-    } 
-
-    &.light {
-        background-color: white;
-        color: rgb(34, 33, 33);
-    } 
-    
-    div:hover {
-        span {
+    font-size: 1rem;    
+   
+    div {
+        &:hover span {
             height: 2.5em;
-            visibility: visible; 
-            opacity: 1; 
-        }       
-    }
+            visibility: visible;
+            opacity: 1;
+        }
 
-    div > span {
-        padding-left: 3em;
-        height: 0;
-        visibility: hidden;
-        opacity: 0; 
-        transition: height 0.8s, opacity 1s;            
-    }
-
-    & > span { 
-        padding-left: 1em; 
-        height: 2.5em;  
-
-        &:hover + div > span {
-                height: 2.5em;
-                visibility: visible; 
-                opacity: 1; 
-                transition: height 0.5s, opacity 1s;                
-                transition-delay: 0.5s;
+        &>span {
+            padding-left: 3em;
+            height: 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: height 0.8s, opacity 1s;
         }
     }
 
+    // ONLY CHILDREN
+    &>span {
+        padding-left: 1em;
+        height: 2.5em;
+
+        &:hover + div > span {
+            height: 2.5em;
+            visibility: visible;
+            opacity: 1;
+            transition: height 0.5s, opacity 1s;
+            transition-delay: 0.5s;
+        }
+    }
+
+    // ALL SPANS INSIDE
     span {
-        display: flex;    
+        display: flex;
         align-items: center;
         cursor: pointer;
-        font-size: 1.1rem;         
+        font-size: 1rem;
 
         &::before {
             font-family: 'Material Icons';
             content: attr(data-icon);
-            font-weight: bold;
             font-size: 1.5em;
             margin-right: .5em;
+            background-color: transparent;
         }
 
-        &[data-suffix]::after {            
+        &[data-suffix]::after {
             font-family: 'Material Icons';
-            content: 'navigate_next';
-            font-weight: bold;
+            content: 'add';
             font-size: 1.5em;
-            margin-right: .5em;
+            margin: 0 .5em 0 auto;
+            text-align: right;
+            transition-delay: 0.5s;
+            transition: transform 0.5s;
         }
 
         &:hover {
-            background-color: #242323;
+            background-color: $item-bg-hover;
+
+            &[data-suffix]::after {
+                transform: rotate(90deg);
+                transition: transform 0.5s;
+                transition-delay: 0.5s;
+            }
+
             &::before {
-                color: lightgreen;
-            }           
+                color: $item-icon-hightlight;
+            }
         }
-    }     
+    }
 
     .close {
-        text-align: center;
+        justify-content: center;
         padding: 1em;
         cursor: pointer;
 
         &:hover {
-            color: lightgreen;
+            color: $item-icon-hightlight;
         }
-    }    
+    }
 }

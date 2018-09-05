@@ -1,17 +1,7 @@
+/*dim the background*/
 html {
   font-size: 15px;
   font-family: Roboto;
-}
-
-body {
-  background-color: #c4c4c4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
 }
 
 *,
@@ -21,61 +11,131 @@ body {
           box-sizing: border-box;
 }
 
-.container {
-  width: 500px;
+body {
+  display: -ms-grid;
+  display: grid;
+  grid: -webkit-min-content / 1fr;
+  grid: min-content / 1fr;
+  background-color: #dddddd;
+  margin: 0;
+  font-size: 1rem;
+}
+
+body > div {
+  position: relative;
+  background: white;
+  color: #4a4a4a;
+  margin: 1.5em;
+  padding: 3em 1em;
+}
+
+body > div::before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: attr(data-title);
+  text-align: left;
+  padding: .5em 1em;
+  display: block;
+  background-color: #4a4a4a;
+  color: white;
+  font-size: 0.8em;
+}
+
+body > div.grid {
+  display: -ms-grid;
+  display: grid;
+  grid: -webkit-min-content / auto;
+  grid: min-content / auto;
+  place-content: center;
+  place-items: center;
+}
+
+label.jr-checkbox {
+  font-size: 1rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 200px;
-  background-color: #f4f4f4;
-  margin: 20px;
-  padding: 20px;
 }
 
-.container.column {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+label.jr-checkbox.left span {
+  margin: 1em 0 1em 1em;
 }
 
-.container.column .column-item {
-  height: 3em;
+label.jr-checkbox.right span {
+  margin: 1em 1em 1em 0;
+}
+
+label.jr-checkbox.top, label.jr-checkbox.bottom {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+label.jr-checkbox.top span, label.jr-checkbox.bottom span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 1em auto;
+}
+
+label.jr-checkbox:hover {
+  cursor: pointer;
+}
+
+label.jr-checkbox:hover span::before {
+  background-color: lightgreen;
+}
+
+label.jr-checkbox input {
+  display: none;
+}
+
+label.jr-checkbox input:checked + span::before {
+  font-family: 'Material Icons';
+  content: 'done';
+  background-color: lightgreen;
+  color: #4a4a4a;
+}
+
+label.jr-checkbox span {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1.6em;
+  height: 1.6em;
+}
+
+label.jr-checkbox span::before {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 3rem;
-          flex: 0 3rem;
-  width: 100%;
-  background-color: #444444;
-  color: white;
-  padding: 5px 1em;
-  cursor: pointer;
-}
-
-.container.column .column-item:hover {
-  background-color: #585858;
-}
-
-.container.column .column-item:hover .title::before {
-  color: lightgreen;
-}
-
-.center {
-  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  border: solid calc(1.5em * 0.075) #4a4a4a;
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: .1em;
 }
 
 .title {
@@ -111,50 +171,6 @@ body {
 
 .slider-container:hover .jrs-radio::before {
   background-color: lightgreen;
-}
-
-.jrs-checkbox {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 1em;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-}
-
-.jrs-checkbox::before {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  content: '';
-  border: solid calc(2rem * 0.1) #444444;
-  font-weight: 600;
-  line-height: 100%;
-  font-size: 1.5em;
-  padding: 5px;
-}
-
-input:checked + .jrs-checkbox::before {
-  font-family: 'Material Icons';
-  content: 'done';
-  background-color: lightgreen;
-  color: #444444;
 }
 
 .jrs-radio {
@@ -227,10 +243,6 @@ input:checked + .jrs-slider::before {
   -webkit-transform: translateX(2rem);
           transform: translateX(2rem);
   background-color: lightgreen;
-}
-
-.slider-container input {
-  display: none;
 }
 
 .bluebag {

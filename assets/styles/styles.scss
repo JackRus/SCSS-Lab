@@ -1,12 +1,8 @@
+@import '../variables/variables.scss';
+
 html {
     font-size: 15px;
     font-family: Roboto;
-}
-
-body {
-    background-color: #c4c4c4;
-    display: flex;
-    flex-flow: row wrap;
 }
 
 *,
@@ -15,44 +11,126 @@ body {
     box-sizing: border-box;
 }
 
-.container {
-    width: 500px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    background-color: #f4f4f4;
-    margin: 20px;
-    padding: 20px;
+body {
+    display: grid;
+    grid: min-content / 1fr;
+    background-color: #dddddd;    
+    margin: 0;
+    font-size: 1rem;    
 }
 
-.container.column {
+body > div {
+    position: relative;    
+    background: white;
+    color: $grey;
+    margin: 1.5em;
+    padding: 3em 1em;
 
-    flex-flow: column;
-
-    .column-item {
-        height: 3em;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        flex: 0 3rem;
-        width: 100%;
-        background-color: #444444;
+    &::before {
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: attr(data-title);
+        text-align: left;
+        padding: .5em 1em;
+        display: block;
+        background-color: $grey;
         color: white;
-        padding: 5px 1em;
-        cursor: pointer;
-        &:hover {
-            background-color: #585858;
-            .title::before {
-                color: lightgreen;
-            }
+        font-size: 0.8em;
+    }
+
+    &.grid {
+        display: grid;
+        grid: min-content / auto;
+        place-content: center; 
+        place-items: center;       
+    }
+}
+
+// CHECKBOX
+label.jr-checkbox {
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+
+    &.left {
+        span { margin: 1em 0 1em 1em; }
+    }
+
+    &.right {
+        span { margin: 1em 1em 1em 0; }
+    }
+
+    &.top, &.bottom {
+        text-align: center;
+        display: block;
+        width: 100%;
+        span { 
+            display: flex;
+            justify-items: center;
+            justify-content: space-around;           
+            margin: 1em auto;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;        
+        span::before {           
+            background-color: lightgreen;           
+        }
+    }   
+
+    input {
+        display: none;
+
+        &:checked + span::before {
+            font-family: 'Material Icons';
+            content: 'done';
+            background-color: lightgreen;
+            color: $font-color;
+        }
+    }
+
+    span {
+        position: relative;
+        display: inline-flex;
+        align-items: center;        
+        width: 1.6em;
+        height: 1.6em;       
+
+        &::before {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            content: '';
+            border: solid calc(1.5em * 0.075) $font-color;
+            font-weight: 600;            
+            font-size: 1.2em;
+            padding: .1em;
         }
     }
 }
 
-.center {
-    text-align: center;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .title {
     display: flex;
@@ -84,39 +162,7 @@ $slider-size: 2rem;
     }
 }
 
-// CHECKBOX
-.jrs-checkbox {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-left: 1em;
-    width: $slider-size;
-    height: $slider-size;
-    cursor: pointer;
-    &::before {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        content: '';
-        border: solid calc(#{$slider-size} * 0.1) #444444;
-        font-weight: 600;
-        line-height: 100%;
-        font-size: 1.5em;
-        padding: 5px;
-    }
-}
 
-input:checked+.jrs-checkbox::before {
-    font-family: 'Material Icons';
-    content: 'done';
-    background-color: lightgreen;
-    color: #444444;
-}
 
 // RADIO 
 .jrs-radio {
@@ -173,10 +219,6 @@ input:checked + .jrs-radio::before {
 input:checked + .jrs-slider::before {
     transform: translateX($slider-size);
     background-color: lightgreen;
-}
-
-.slider-container input {
-    display: none;
 }
 
 .bluebag {
