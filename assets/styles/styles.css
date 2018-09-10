@@ -189,8 +189,9 @@ label.jr-radio input {
 }
 
 label.jr-radio input:checked + span {
-  border: solid 0.45rem;
   background-color: lightgreen;
+  -webkit-box-shadow: inset 0 0 0 .5em;
+          box-shadow: inset 0 0 0 .5em;
 }
 
 label.jr-radio span {
@@ -206,8 +207,13 @@ label.jr-radio span {
           justify-content: center;
   width: 1.6em;
   height: 1.6em;
-  border: solid .1125rem;
   border-radius: 1.6em;
+  -webkit-box-shadow: inset 0 0 0 .1125em;
+          box-shadow: inset 0 0 0 .1125em;
+  -webkit-transition: -webkit-box-shadow 0.4s linear;
+  transition: -webkit-box-shadow 0.4s linear;
+  transition: box-shadow 0.4s linear;
+  transition: box-shadow 0.4s linear, -webkit-box-shadow 0.4s linear;
 }
 
 label.jr-slider {
@@ -266,7 +272,7 @@ ul.list {
   display: -ms-grid;
   display: grid;
   grid: auto-flow / 1fr;
-  grid-gap: 0.2em;
+  grid-gap: 0.3em;
   width: 100%;
   list-style: none;
   margin: 0;
@@ -293,21 +299,27 @@ ul.list li {
 ul.list li.done::before {
   content: 'done';
   color: darkcyan;
+  background: none;
 }
 
 ul.list li.error::before {
   content: 'clear';
   color: red;
+  background: none;
 }
 
 ul.list li::before {
+  text-align: center;
   font-family: 'Material Icons';
-  content: 'play_arrow';
-  min-width: 1.5em;
+  color: transparent;
+  content: '.';
+  background: url('data:image/svg+xml,                <svg xmlns="http://www.w3.org/2000/svg" height="6" width="6">                    <circle cx="3" cy="3" r="3" fill="#4a4a4a" />                </svg>') no-repeat center;
+  min-width: 1em;
+  margin-right: 0.5em;
   font-weight: bold;
 }
 
-.test {
+.ripple {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -318,51 +330,54 @@ ul.list li::before {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 1rem;
-  width: 1.5em;
-  height: 1.5em;
-  background: #d33838;
+  width: 1em;
+  height: 1em;
+  background: grey;
 }
 
-.test::after {
+.ripple::before {
   content: '';
   width: 1em;
   height: 1em;
   border-radius: 1em;
-  background: #38d350;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0.8;
-  z-index: 2;
+  background: rgba(138, 136, 136, 0.379);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  opacity: 0;
 }
 
-.test:active:hover::after {
-  opacity: 0.1;
+.ripple:active:hover::before {
+  opacity: 0.5;
   -webkit-transform: scale(3);
           transform: scale(3);
   -webkit-transition: 0.1s;
   transition: 0.1s;
-  -webkit-animation: opacity 1s;
-          animation: opacity 1s;
+  -webkit-animation: opacity 0.1s;
+          animation: opacity 0.1s;
 }
 
-.title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.btn {
+  padding: 0 .75em;
+  font-size: 1rem;
+  min-height: 2.5em;
+  min-width: 6em;
+  font-family: inherit;
+  border-radius: 2px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  background: grey;
+  outline: none;
+  color: white;
   cursor: pointer;
-  font-size: 1.2rem;
-  line-height: 1rem;
 }
 
-.title::before {
-  font-family: 'Material Icons';
-  content: attr(data-icon);
-  font-weight: bold;
-  font-size: 1.5em;
-  margin-right: .5em;
+.btn.primary {
+  background: blueviolet;
+}
+
+.btn.orange {
+  background: #f2784b;
 }
 
 .bluebag {
@@ -460,59 +475,5 @@ ul.list li::before {
   100% {
     opacity: 0;
   }
-}
-
-.rrrlist {
-  display: -ms-grid;
-  display: grid;
-  grid: auto-flow / 1fr;
-  grid-gap: 0.2em;
-  width: 100%;
-  list-style: none;
-  margin: 0;
-  font-size: 1rem;
-}
-
-.rrrlist li {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 1.2em;
-}
-
-.rrrlist li.done::before {
-  font-family: 'Material Icons';
-  content: 'done';
-  font-size: 1.2em;
-  color: darkcyan;
-  font-weight: bold;
-  width: 1.5em;
-}
-
-.rrrlist li.error::before {
-  font-family: 'Material Icons';
-  content: 'clear';
-  font-size: 1.2em;
-  color: red;
-  font-weight: bold;
-  width: 1.5em;
-}
-
-.rrrlist li::before {
-  font-family: 'Material Icons';
-  content: 'play_arrow';
-  font-size: 1.2em;
-  width: 1.5em;
-}
-
-.rrrlist.f08 {
-  font-size: 0.8rem;
-}
-
-.rrrlist.f20 {
-  font-size: 2rem;
 }
 /*# sourceMappingURL=styles.css.map */
