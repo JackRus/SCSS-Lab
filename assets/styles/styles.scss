@@ -21,6 +21,7 @@ body {
 }
 
 body > div {
+    display: inline-block;
     position: relative;    
     background: white;
     color: $grey;    
@@ -85,9 +86,8 @@ label.jr-checkbox {
     input {
         display: none;
 
-        &:checked + span::before {
-            font-family: 'Material Icons';
-            content: 'done';
+        &:checked + span::before {            
+            content: '\2713'; 
             background-color: lightgreen;
             color: $font-color;
         }
@@ -283,6 +283,9 @@ ul.list {
 
 
 .btn { 
+    display: inline-flex;    
+    align-items: center;
+    justify-content: center;
     padding: 0 .75em;   
     font-size: 1rem;
     min-height: 2.5em;   
@@ -290,22 +293,44 @@ ul.list {
     font-family: inherit;
     border-radius: 2px;
     border: none;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 3px 1px -2px rgba(0,0,0,.2), 
+        0 2px 2px 0 rgba(0,0,0,.14), 
+        0 1px 5px 0 rgba(0,0,0,.12);
     background: grey;
     outline:none;
     color: white;
     cursor: pointer;
 
+    &.small {
+        font-size: 0.7rem;
+        min-height: 2.5em;   
+        min-width: 6em;
+    }
+
+    &:active {
+        box-shadow: 
+          0 0px 0px 0 rgba(0,0,0,.2), 
+          0 0px 1px 0 rgba(0,0,0,.14), 
+          0 0px 1px 0 rgba(0,0,0,.12);
+    }
+
     &.primary {
-        background: blueviolet;
+        background: $primary;
     }
 
     &.warn {
+        background: $warn;       
+    }    
 
-    }
+    &::before {           
+        font-size: 1.8em;
+        font-family: 'Material Icons';
+        content: attr(data-icon);        
+    }      
 
     &.accent {
-
+        background: $accent;
     }
 
     &.orange {

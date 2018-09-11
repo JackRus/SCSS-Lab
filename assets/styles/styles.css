@@ -22,6 +22,7 @@ body {
 }
 
 body > div {
+  display: inline-block;
   position: relative;
   background: white;
   color: #4a4a4a;
@@ -108,8 +109,7 @@ label.jr-checkbox input {
 }
 
 label.jr-checkbox input:checked + span::before {
-  font-family: 'Material Icons';
-  content: 'done';
+  content: '\2713';
   background-color: lightgreen;
   color: #4a4a4a;
 }
@@ -357,6 +357,15 @@ ul.list li::before {
 }
 
 .btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0 .75em;
   font-size: 1rem;
   min-height: 2.5em;
@@ -364,16 +373,41 @@ ul.list li::before {
   font-family: inherit;
   border-radius: 2px;
   border: none;
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   background: grey;
   outline: none;
   color: white;
   cursor: pointer;
 }
 
+.btn.small {
+  font-size: 0.7rem;
+  min-height: 2.5em;
+  min-width: 6em;
+}
+
+.btn:active {
+  -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 1px 0 rgba(0, 0, 0, 0.14), 0 0px 1px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 1px 0 rgba(0, 0, 0, 0.14), 0 0px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
 .btn.primary {
-  background: blueviolet;
+  background: #3598dc;
+}
+
+.btn.warn {
+  background: #e53935;
+}
+
+.btn::before {
+  font-size: 1.8em;
+  font-family: 'Material Icons';
+  content: attr(data-icon);
+}
+
+.btn.accent {
+  background: #2f8656;
 }
 
 .btn.orange {
